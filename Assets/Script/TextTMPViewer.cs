@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class TextTMPViewer : MonoBehaviour
+{
+    [SerializeField] private TextMeshProUGUI textPlayerGold;
+    [SerializeField] private PlayerGold playerGold;
+
+	[SerializeField] private TextMeshProUGUI textWave;
+    [SerializeField] private TextMeshProUGUI textMaxWave;
+	[SerializeField] private WaveSystem waveSystem;
+
+    [SerializeField] private TextMeshProUGUI textEnemyCount;
+    [SerializeField] private EnemySpawner enemySpawner;
+
+
+
+	private void Update()
+    {
+        textPlayerGold.text = playerGold.CurrentGold.ToString();
+
+        textWave.text = waveSystem.CurrentWave.ToString();
+        textMaxWave.text = waveSystem.maxWave.ToString();
+
+		textEnemyCount.text = enemySpawner.CurrentEnemyCount + " / " + enemySpawner.MaxEnemyCount;
+	}
+}
